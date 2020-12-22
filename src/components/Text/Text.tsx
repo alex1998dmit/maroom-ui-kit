@@ -15,10 +15,10 @@ export enum TextWeights {
 }
 
 type Props = {
-  color?: string | undefined,
-  children: React.ReactNode | undefined,
-  size?: TextSizes | undefined,
-  weight?: TextWeights,
+  color?: string | undefined
+  children: React.ReactNode | undefined
+  size?: TextSizes | undefined
+  weight?: TextWeights
   textAlign?: string | undefined
 }
 
