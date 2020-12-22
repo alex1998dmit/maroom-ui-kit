@@ -1,10 +1,4 @@
-import * as React from 'react'
-import styles from './styles.module.css'
+// @ts-ignore
+import Input from './components/Input/Input'
 
-interface Props {
-  text: string
-}
-
-export const ExampleComponent = ({ text }: Props) => {
-  return <div className={styles.test}>Example Component: {text}</div>
-}
+export { Input }
