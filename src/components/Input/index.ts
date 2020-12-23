@@ -1,4 +1,4 @@
 import Input from './Input'
 
-export { inputTypes } from './Input'
+export { InputTypes } from './Input'
 export default Input

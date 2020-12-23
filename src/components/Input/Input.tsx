@@ -42,7 +42,7 @@ const useStyles = makeStyles(() => ({
   }
 }))
 
-export enum inputTypes {
+export enum InputTypes {
   password = 'password',
   email = 'email',
   text = 'text'
@@ -52,7 +52,7 @@ type InputProps = {
   inputProps?: Object
   name?: string
   label: string
-  type: inputTypes
+  type: InputTypes
   error?: boolean
   inputRef?: RefObject<any>
 }
@@ -91,7 +91,7 @@ const Input = (props: InputProps) => {
 Input.defaultProps = {
   validationRules: null,
   label: 'default label - please provide',
-  type: inputTypes.text,
+  type: InputTypes.text,
   error: false
 }
 
