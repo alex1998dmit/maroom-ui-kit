@@ -6,4 +6,4 @@ import Heading from './components/Heading'
 
 export { ButtonSizes, ButtonThemes } from './components/Button'
 export { InputTypes } from './components/Input'
-export default { Input, Button, Text, Heading }
+export { Input, Button, Text, Heading }
