@@ -1,5 +1,6 @@
 interface Color {
   main: string
+  contrastText?: string
 }
 
 interface Colors {
@@ -8,16 +9,20 @@ interface Colors {
 
 const colors: Colors = {
   brandPrimary: {
-    main: '#F57C00'
+    main: '#F57C00',
+    contrastText: 'white'
   },
   gray400: {
-    main: '#EAECEF'
+    main: '#EAECEF',
+    contrastText: '#7F8285'
   },
   gray300: {
-    main: '#F1F2F4'
+    main: '#F1F2F4',
+    contrastText: '#7F8285'
   },
   gray200: {
-    main: '#FBFBFD'
+    main: '#FBFBFD',
+    contrastText: '#7F8285'
   },
   customBlack: {
     main: '#191919'
@@ -26,10 +31,11 @@ const colors: Colors = {
     main: '#7F8285'
   },
   redLight: {
-    main: '#FCE6E6'
+    main: '#FCE6E6',
+    contrastText: '#F57C00'
   },
   customRed: {
-    main: '#EB5757'
+    main: '#EB5757',
   }
 }
 
