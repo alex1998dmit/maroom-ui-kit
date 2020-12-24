@@ -15,7 +15,12 @@
     "suppressImplicitAnyIndexErrors": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./",
+    "paths": {
+      "maroom-ui-kit/core": ["./src/components/"],
+      "maroom-ui-kit/core/*": ["./src/components/*"],
+    }
   },
   "include": ["src"],
   "exclude": ["node_modules", "dist", "example"]

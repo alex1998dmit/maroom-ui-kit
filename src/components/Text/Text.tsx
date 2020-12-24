@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
-import colors from "../../theme/colors";
+import colors from '../../theme/colors'
 
 export enum TextSizes {
   textSm = 'text_small',

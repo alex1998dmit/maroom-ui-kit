@@ -3,8 +3,9 @@ import { TextField as MaterialInput } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
 import colors from '../../theme/colors'
 import ValidationError from '../ValidationError'
+import { TextFieldProps } from '@material-ui/core/TextField'
 
-const useStyles = makeStyles(() => ({
+const useStyles: any = makeStyles(() => ({
   root: (props: InputProps) => ({
     backgroundColor: 'white',
     borderRadius: props.error ? '12px 12px 0 0' : '12px',
@@ -47,13 +48,17 @@ export enum InputTypes {
   text = 'text'
 }
 
-type InputProps = {
-  inputProps?: Object
+type CustomInputProps = {
   error?: boolean
+  inputProps?: any
+  name?: string
+  label?: string
 }
 
+type InputProps = TextFieldProps & CustomInputProps
+
 const Input = (props: InputProps) => {
-  const { inputProps, error } = props
+  const { error, inputProps } = props
   const classes = useStyles(props)
   return (
     <div>
