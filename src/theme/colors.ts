@@ -3,11 +3,22 @@ interface Color {
   contrastText?: string
 }
 
-interface Colors {
+interface ColorsInterface {
   [value: string]: Color
 }
 
-const colors: Colors = {
+export enum Colors {
+  brandPrimary= 'brandPrimary',
+  gray400 = 'gray400',
+  gray300 = 'gray300',
+  gray200 = 'gray200',
+  customBlack = 'customBlack',
+  medium = 'medium',
+  redLight = 'redLight',
+  customRed = 'customRed',
+}
+
+const colors: ColorsInterface = {
   brandPrimary: {
     main: '#F57C00',
     contrastText: 'white'
@@ -35,7 +46,7 @@ const colors: Colors = {
     contrastText: '#F57C00'
   },
   customRed: {
-    main: '#EB5757',
+    main: '#EB5757'
   }
 }
 

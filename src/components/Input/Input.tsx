@@ -3,7 +3,6 @@ import { TextField as MaterialInput } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
 import colors from '../../theme/colors'
 import ValidationError from '../ValidationError'
-import { RefObject } from 'react'
 
 const useStyles = makeStyles(() => ({
   root: (props: InputProps) => ({
@@ -50,28 +49,21 @@ export enum InputTypes {
 
 type InputProps = {
   inputProps?: Object
-  name?: string
-  label: string
-  type: InputTypes
   error?: boolean
-  inputRef?: RefObject<any>
 }
 
 const Input = (props: InputProps) => {
-  const { name, label, inputProps, type, error, inputRef } = props
+  const { inputProps, error } = props
   const classes = useStyles(props)
   return (
     <div>
       <MaterialInput
-        inputRef={inputRef}
+        {...props}
         classes={{
           root: classes.root
         }}
         variant='filled'
-        label={label}
-        name={name}
         fullWidth
-        type={type}
         error={error}
         InputProps={{
           ...inputProps,
@@ -89,9 +81,6 @@ const Input = (props: InputProps) => {
 }
 
 Input.defaultProps = {
-  validationRules: null,
-  label: 'default label - please provide',
-  type: InputTypes.text,
   error: false
 }
 
