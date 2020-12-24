@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Button as ButtonMaterial } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
 import colors from '../../theme/colors'
+import { ButtonProps as MaterialButtonProps } from '@material-ui/core/Button'
 
 const useStyles = makeStyles(() => ({
   root: (props: ButtonProps) => ({
@@ -71,7 +72,7 @@ type ButtonProps = {
   disabled?: boolean
   fullWidth?: boolean
   className?: string
-}
+} & MaterialButtonProps
 
 const Button = (props: ButtonProps) => {
   const { size, startIcon, endIcon, disabled, fullWidth, className } = props

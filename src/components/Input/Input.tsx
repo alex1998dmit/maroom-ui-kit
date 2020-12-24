@@ -50,6 +50,7 @@ export enum InputTypes {
 
 type CustomInputProps = {
   error?: boolean
+  errorMsg?: string
   inputProps?: any
   name?: string
   label?: string
@@ -58,7 +59,7 @@ type CustomInputProps = {
 type InputProps = TextFieldProps & CustomInputProps
 
 const Input = (props: InputProps) => {
-  const { error, inputProps } = props
+  const { error, errorMsg, inputProps } = props
   const classes = useStyles(props)
   return (
     <div>
@@ -80,7 +81,7 @@ const Input = (props: InputProps) => {
           autoComplete: 'off'
         }}
       />
-      <ValidationError open={error}>Alert Message</ValidationError>
+      <ValidationError open={error}>{errorMsg}</ValidationError>
     </div>
   )
 }
