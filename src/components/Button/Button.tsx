@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Button as ButtonMaterial } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
-import colors from '../../theme/colors'
+import colors, { Colors } from '../../theme/colors'
 import { ButtonProps as MaterialButtonProps } from '@material-ui/core/Button'
 
 const useStyles = makeStyles(() => ({
@@ -23,17 +23,22 @@ const useStyles = makeStyles(() => ({
       }
     },
     '&:hover': {
-      backgroundColor:
-        colors[props.theme].contrastText ?? colors.buttonPrimary.contrastText,
-      color: colors[props.theme].main ?? colors.buttonPrimary.main,
+      backgroundColor: colors[props.theme].hover ?? colors.buttonPrimary.hover,
+      color:
+        colors[props.theme].hoverContrastText ??
+        colors.buttonPrimary.hoverContrastText,
       '& svg': {
         '& path': {
-          fill: colors[props.theme].main ?? colors.buttonPrimary.main
+          fill:
+            colors[props.theme].hoverContrastText ??
+            colors.buttonPrimary.hoverContrastText
         }
       }
     },
     '&:active': {
-      backgroundColor: colors.brandPrimary.main,
+      backgroundColor:
+        colors[props.theme].pressed ??
+        colors.buttonPrimary.pressed,
       boxShadow: '0px 5px 16px rgba(0, 0, 0, 0.1)'
     }
   }),
@@ -59,13 +64,13 @@ export enum ButtonSizes {
 
 export enum ButtonThemes {
   brandPrimary = 'brandPrimary',
-  gray400 = 'gray400',
-  redLight = 'redLight'
+  brandLight = 'brandLight',
+  white = 'customWhite'
 }
 
 type ButtonProps = {
   size?: ButtonSizes
-  theme: string
+  theme: ButtonThemes
   children?: React.ReactNode
   startIcon?: React.ReactNode
   endIcon?: React.ReactNode
@@ -102,7 +107,7 @@ const Button = (props: ButtonProps) => {
 Button.defaultProps = {
   disabled: false,
   fullWidth: true,
-  theme: 'brandPrimary'
+  theme: Colors.brandPrimary
 }
 
 export default Button

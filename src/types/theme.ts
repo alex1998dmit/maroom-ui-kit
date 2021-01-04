@@ -16,7 +16,7 @@ export interface Typography {
   [prop: string]: Heading | string
 }
 
-export interface Theme {
+export interface ThemeInterface {
   colors: Colors
   typography: Typography
 }

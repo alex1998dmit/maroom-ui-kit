@@ -1,8 +1,8 @@
 import typography from './typography'
 import colors from './colors'
-import { Theme } from '../types/theme'
+import { ThemeInterface } from '../types/theme'
 
-const theme: Theme = {
+const theme: ThemeInterface = {
   typography,
   colors
 }

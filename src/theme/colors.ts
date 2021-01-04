@@ -1,6 +1,9 @@
 interface Color {
   main: string
   contrastText?: string
+  hover?: string
+  hoverContrastText?: string
+  pressed?: string
 }
 
 interface ColorsInterface {
@@ -9,6 +12,7 @@ interface ColorsInterface {
 
 export enum Colors {
   brandPrimary= 'brandPrimary',
+  brandLight= 'brandLight',
   gray400 = 'gray400',
   gray300 = 'gray300',
   gray200 = 'gray200',
@@ -16,12 +20,31 @@ export enum Colors {
   medium = 'medium',
   redLight = 'redLight',
   customRed = 'customRed',
+  customWhite = 'customWhite'
 }
 
 const colors: ColorsInterface = {
+  // using in buttons
   brandPrimary: {
     main: '#F57C00',
-    contrastText: 'white'
+    contrastText: 'white',
+    hover: '#EA7600',
+    hoverContrastText: 'white',
+    pressed: '#D76D00'
+  },
+  brandLight: {
+    main: '#FDEBD9',
+    contrastText: '#F57C00',
+    hover: '#EA7600',
+    hoverContrastText: 'white',
+    pressed: '#D76D00'
+  },
+  customWhite: {
+    main: '#FBFBFD',
+    contrastText: '#7F8285',
+    hover: '#FBFBFD',
+    hoverContrastText: 'black',
+    pressed: '#EAECEF'
   },
   gray400: {
     main: '#EAECEF',
