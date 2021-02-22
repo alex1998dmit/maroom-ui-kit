@@ -56,7 +56,7 @@ type CustomInputProps = {
   label?: string
 }
 
-type InputProps = TextFieldProps & CustomInputProps
+export type InputProps = TextFieldProps & CustomInputProps
 
 const Input = (props: InputProps) => {
   const { error, errorMsg, inputProps } = props

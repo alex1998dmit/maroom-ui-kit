@@ -37,8 +37,7 @@ const useStyles = makeStyles(() => ({
     },
     '&:active': {
       backgroundColor:
-        colors[props.theme].pressed ??
-        colors.buttonPrimary.pressed,
+        colors[props.theme].pressed ?? colors.buttonPrimary.pressed,
       boxShadow: '0px 5px 16px rgba(0, 0, 0, 0.1)'
     }
   }),

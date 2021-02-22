@@ -17,18 +17,26 @@ export enum HeadingWeights {
   medium = 400
 }
 
+export enum HeadingTransforms {
+  regular= 'none',
+  uppercase = 'uppercase',
+  lowercase = 'lowercase'
+}
+
 type Props1 = {
   color?: string
   children?: React.ReactNode
   size?: HeadingSizes
   weight?: HeadingWeights
   textAlign?: string
+  transform?: HeadingTransforms
 }
 
 const useStyles = makeStyles({
   root: (props: Props1) => ({
     fontWeight: props.weight,
-    color: props.color ? colors[props.color].main : 'black'
+    color: props.color ? colors[props.color].main : 'black',
+    textTransform: props.transform || 'none'
   })
 })
 
@@ -44,7 +52,8 @@ const Heading = (props: Props1) => {
 
 Heading.defaultProps = {
   size: HeadingSizes.h2,
-  color: 'customBlack'
+  color: 'customBlack',
+  transform: HeadingTransforms.regular
 }
 
 export default Heading
