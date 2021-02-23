@@ -1,7 +1,6 @@
 import * as React from 'react'
 import { Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
-import colors from '../../theme/colors'
 
 export enum HeadingSizes {
   h1 = 'h1',
@@ -35,7 +34,7 @@ type Props1 = {
 const useStyles = makeStyles({
   root: (props: Props1) => ({
     fontWeight: props.weight,
-    color: props.color ? colors[props.color].main : 'black',
+    color: 'black',
     textTransform: props.transform || 'none'
   })
 })

@@ -4,13 +4,14 @@ import { makeStyles } from '@material-ui/styles'
 import colors from '../../theme/colors'
 
 type CircleButtonProps = {
-  theme: string
+  theme?: string
   children?: React.ReactNode
 } & IconButtonProps
 
 const useStyles = makeStyles(() => ({
-  root: (props: CircleButtonProps) => ({
-    backgroundColor: colors[props.theme].main ?? colors.buttonPrimary.main,
+  // props: CircleButtonProps
+  root: () => ({
+    backgroundColor: colors.primary.main,
     width: '64px',
     height: '64px'
   })

@@ -1,9 +1,9 @@
 import * as React from 'react'
 import { TextField as MaterialInput } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
-import colors from '../../theme/colors'
 import ValidationError from '../ValidationError'
 import { TextFieldProps } from '@material-ui/core/TextField'
+import colors from '../../theme/colors'
 
 const useStyles: any = makeStyles(() => ({
   root: (props: InputProps) => ({
@@ -12,20 +12,20 @@ const useStyles: any = makeStyles(() => ({
     background: 'white',
     '& .MuiFormLabel-root.Mui-focused': {
       border: 'none',
-      color: colors.medium.main // or black
+      color: colors.primary.main // or black
     },
     '& .MuiFilledInput-underline': {
       background: 'white'
     },
     '& .Mui-focused': {
-      border: `1px solid ${colors.brandPrimary.main}`,
+      border: `1px solid ${colors.primary.main}`,
       background: 'white'
     }
   }),
   inputRoot: (props: InputProps) => ({
     background: 'white',
     border: `${props.error ? 1.5 : 1}px solid ${
-      props.error ? colors.customRed.main : colors.gray400.main
+      props.error ? colors.error.main : colors.secondary.border
     }`,
     borderRadius: props.error ? '12px 12px 0 0' : '12px'
   }),

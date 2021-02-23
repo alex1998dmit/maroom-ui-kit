@@ -1,15 +1,16 @@
 import * as React from 'react'
 import { makeStyles } from '@material-ui/styles'
-import { Input, ThemeInterface } from '../../'
+import { Input } from '../../'
 import { useAutocomplete } from '@material-ui/lab'
+import colors from '../../theme/colors'
 
-const useStyles = makeStyles((theme: ThemeInterface) => ({
+const useStyles = makeStyles(() => ({
   root: {
     position: 'relative'
   },
   options: {
     background: 'white',
-    border: `1px solid ${theme.colors.gray400.main}`,
+    border: `1px solid ${colors.secondary.border}`,
     borderRadius: '12px',
     // position: 'absolute',
     marginTop: '8px',

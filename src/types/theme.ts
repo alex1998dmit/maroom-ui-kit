@@ -1,10 +1,4 @@
-interface Color {
-  main: string
-}
-
-export interface Colors {
-  [value: string]: Color
-}
+import { ColorsInterface } from '../theme/colors'
 
 interface Heading {
   fontSize: string
@@ -17,6 +11,6 @@ export interface Typography {
 }
 
 export interface ThemeInterface {
-  colors: Colors
+  palette: ColorsInterface
   typography: Typography
 }

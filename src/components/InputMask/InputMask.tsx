@@ -1,18 +1,19 @@
 import * as React from 'react'
-import ReactInputMask from 'react-input-mask'
+import ReactInputMask, {Props} from 'react-input-mask'
 import Input, { InputProps } from '../Input'
 
-type Props = {
-  InputProps: InputProps
+type InputMaskProps = {
+  inputProps?: InputProps
+  label?: string
   mask: string | Array<string>
-}
+} & Props
 
-const InputMask = (props: Props) => {
-  const { InputProps, mask, ...other } = props
+const InputMask = (props: InputMaskProps) => {
+  const { inputProps, mask, label, ...other } = props
 
   return (
     <ReactInputMask mask={mask} {...other}>
-      {() => <Input {...InputProps} />}
+      {() => <Input {...inputProps} label={label} />}
     </ReactInputMask>
   )
 }

@@ -4,7 +4,6 @@ import {
   TypographyProps as MaterialTypographyProps
 } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
-import colors from '../../theme/colors'
 
 export enum CaptionSizes {
   xs = 'text_xs',
@@ -19,7 +18,7 @@ export enum CaptionWeights {
 }
 
 export enum CaptionTransform {
-  regular= 'none',
+  regular = 'none',
   uppercase = 'uppercase',
   lowercase = 'lowercase'
 }
@@ -48,18 +47,18 @@ const CaptionSizeStyles = {
   }
 }
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(() => ({
   root: (props: Props) => ({
     fontSize: `${
       props.size
         ? CaptionSizeStyles[props.size].fontSize
         : CaptionSizeStyles[CaptionSizes.m]
     }px`,
-    weight: props.weight,
+    fontWeight: props.weight,
     textTransform: props.transform || 'none',
-    color: props.color ? colors[props.color].main : 'black'
+    color: 'black'
   })
-})
+}))
 
 const Caption = (props: Props) => {
   const {

@@ -1,43 +1,37 @@
 import * as React from 'react'
 import { Button as ButtonMaterial } from '@material-ui/core'
 import { makeStyles } from '@material-ui/styles'
-import colors, { Colors } from '../../theme/colors'
 import { ButtonProps as MaterialButtonProps } from '@material-ui/core/Button'
+import colors from '../../theme/colors'
 
 const useStyles = makeStyles(() => ({
-  root: (props: ButtonProps) => ({
-    backgroundColor: colors[props.theme].main ?? colors.buttonPrimary.main,
+  // props: ButtonProps
+  root: () => ({
+    backgroundColor: colors.primary.main,
     background: 'white',
     height: '40px',
     fontSize: '14x',
     lineHeight: '14px',
     borderRadius: '66px',
-    color:
-      colors[props.theme].contrastText ?? colors.buttonPrimary.contrastText,
+    color: colors.secondary.white,
     textTransform: 'none',
     boxShadow: 'none',
     '& svg': {
       '& path': {
-        fill:
-          colors[props.theme].contrastText ?? colors.buttonPrimary.contrastText
+        fill: colors.secondary.white
       }
     },
     '&:hover': {
-      backgroundColor: colors[props.theme].hover ?? colors.buttonPrimary.hover,
-      color:
-        colors[props.theme].hoverContrastText ??
-        colors.buttonPrimary.hoverContrastText,
+      backgroundColor: colors.primary.main,
+      color: colors.secondary.white,
       '& svg': {
         '& path': {
-          fill:
-            colors[props.theme].hoverContrastText ??
-            colors.buttonPrimary.hoverContrastText
+          fill: colors.secondary.white
         }
       }
     },
     '&:active': {
-      backgroundColor:
-        colors[props.theme].pressed ?? colors.buttonPrimary.pressed,
+      backgroundColor: colors.primary.pressed,
       boxShadow: '0px 5px 16px rgba(0, 0, 0, 0.1)'
     }
   }),
@@ -69,7 +63,6 @@ export enum ButtonThemes {
 
 type ButtonProps = {
   size?: ButtonSizes
-  theme: ButtonThemes
   children?: React.ReactNode
   startIcon?: React.ReactNode
   endIcon?: React.ReactNode
@@ -105,8 +98,7 @@ const Button = (props: ButtonProps) => {
 
 Button.defaultProps = {
   disabled: false,
-  fullWidth: true,
-  theme: Colors.brandPrimary
+  fullWidth: true
 }
 
 export default Button

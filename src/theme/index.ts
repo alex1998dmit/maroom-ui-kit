@@ -4,7 +4,7 @@ import { ThemeInterface } from '../types/theme'
 
 const theme: ThemeInterface = {
   typography,
-  colors
+  palette: colors
 }
 
 export default theme

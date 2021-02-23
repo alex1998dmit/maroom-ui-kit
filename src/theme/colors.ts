@@ -1,76 +1,58 @@
-interface Color {
-  main: string
-  contrastText?: string
-  hover?: string
-  hoverContrastText?: string
-  pressed?: string
-}
-
 interface ColorsInterface {
-  [value: string]: Color
-}
-
-export enum Colors {
-  brandPrimary= 'brandPrimary',
-  brandLight= 'brandLight',
-  gray400 = 'gray400',
-  gray300 = 'gray300',
-  gray200 = 'gray200',
-  customBlack = 'customBlack',
-  medium = 'medium',
-  redLight = 'redLight',
-  customRed = 'customRed',
-  customWhite = 'customWhite'
+  primary: {
+    pressed: string
+    hover: string
+    main: string
+    brand: string
+    background: string
+    light: string
+  }
+  secondary: {
+    main: string
+    hover: string
+    pressed: string
+    medium: string
+    light: string
+    light1: string
+    light2: string
+    light3: string
+    lightest: string
+    border: string
+    white: string
+  }
+  error: {
+    light: string
+    main: string
+  }
 }
 
 const colors: ColorsInterface = {
-  // using in buttons
-  brandPrimary: {
+  primary: {
+    pressed: '#D76D00',
+    hover: '#EA7600',
     main: '#F57C00',
-    contrastText: 'white',
-    hover: '#EA7600',
-    hoverContrastText: 'white',
-    pressed: '#D76D00'
+    brand: '#F57C00',
+    background: '#FEF7F0',
+    light: '#7F8285'
   },
-  brandLight: {
-    main: '#FDEBD9',
-    contrastText: '#F57C00',
-    hover: '#EA7600',
-    hoverContrastText: 'white',
-    pressed: '#D76D00'
+  secondary: {
+    main: '#191919',
+    hover: '#282929',
+    pressed: '#303232',
+    medium: '#474747',
+    light: '#949494',
+    light1: '#FBFBFD',
+    light2: '#F7F8F9',
+    light3: '#F2F3F5',
+    lightest: '#BFBFBF',
+    border: '#EAECEF',
+    white: '#FFFFFF'
   },
-  customWhite: {
-    main: '#FBFBFD',
-    contrastText: '#7F8285',
-    hover: '#FBFBFD',
-    hoverContrastText: 'black',
-    pressed: '#EAECEF'
-  },
-  gray400: {
-    main: '#EAECEF',
-    contrastText: '#7F8285'
-  },
-  gray300: {
-    main: '#F1F2F4',
-    contrastText: '#7F8285'
-  },
-  gray200: {
-    main: '#FBFBFD',
-    contrastText: '#7F8285'
-  },
-  customBlack: {
-    main: '#191919'
-  },
-  medium: {
-    main: '#7F8285'
-  },
-  redLight: {
-    main: '#FCE6E6',
-    contrastText: '#F57C00'
-  },
-  customRed: {
+  error: {
+    light: '#FCE6E6',
     main: '#EB5757'
   }
 }
 
+export { ColorsInterface }
 export default colors

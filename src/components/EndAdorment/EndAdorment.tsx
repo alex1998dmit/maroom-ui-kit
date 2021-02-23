@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { makeStyles } from '@material-ui/styles'
-import { ThemeInterface } from '../../'
+import colors from '../../theme/colors'
 
 export enum AdormentPositions {
   top = 'flex-start',
@@ -12,15 +12,15 @@ type StyleProps = {
   position: AdormentPositions
 }
 
-const useStyles = makeStyles((theme: ThemeInterface) => ({
+const useStyles = makeStyles(() => ({
   root: (props: StyleProps) => ({
     height: '53px',
     display: 'flex',
     alignItems: props.position,
     padding: '12px 0',
-    color: theme.colors.secondary.medium,
+    color: colors.secondary.medium,
     '& p': {
-      color: theme.colors.secondary.medium
+      color: colors.secondary.medium
     }
   })
 }))

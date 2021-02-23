@@ -5,8 +5,8 @@
   "author": "alex1998dmit",
   "license": "MIT",
   "repository": "alex1998dmit/maroom-ui-kit",
-  "main": "dist/index.js",
-  "module": "dist/index.modern.js",
+  "main": "example/src/dist/index.js",
+  "module": "example/src/dist/index.modern.js",
   "source": "src/index.tsx",
   "engines": {
     "node": ">=10"
@@ -60,7 +60,7 @@
     "typescript": "^3.7.5"
   },
   "files": [
-    "dist"
+    "example/src/dist"
   ],
   "dependencies": {
     "@material-ui/core": "^4.11.2",

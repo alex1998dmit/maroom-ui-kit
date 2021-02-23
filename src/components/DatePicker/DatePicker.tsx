@@ -1,5 +1,5 @@
 import * as React from 'react'
-import DatePicker from 'react-datepicker'
+import DatePicker, {ReactDatePickerProps} from 'react-datepicker'
 import { Input } from '../../'
 import EndAdornment, { AdormentPositions } from '../EndAdorment/EndAdorment'
 import CalendarIcon from '../../icons/Calendar'
@@ -16,6 +16,7 @@ type Props = {
   value?: Date
   onChange: (e?: any) => void
   dateFormat?: string
+  dataPickerProps?: ReactDatePickerProps
 }
 
 const CalendarInput = (props: Props) => {
@@ -28,6 +29,7 @@ const CalendarInput = (props: Props) => {
     value,
     onChange,
     dateFormat,
+    dataPickerProps,
     ...otherProps
   } = props
 
@@ -51,6 +53,7 @@ const CalendarInput = (props: Props) => {
   )
   return (
     <DatePicker
+      {...dataPickerProps}
       selected={value}
       onChange={onChange}
       customInput={<CustomInput />}

@@ -14,7 +14,7 @@ const useStyles = makeStyles(() => ({
     height: '32px',
     display: props.open ? 'flex' : 'none',
     alignItems: 'center',
-    background: colors.redLight.main,
+    background: colors.error.light,
     borderRadius: '0 0 12px 12px',
     boxShadow:
       '0px 0px 1px rgba(10, 31, 68, 0.08), 0px 3px 4px rgba(10, 31, 68, 0.1)',
@@ -23,7 +23,7 @@ const useStyles = makeStyles(() => ({
   content: {
     fontSize: '12px',
     lineHeight: '14px',
-    color: colors.customRed.main,
+    color: colors.error.main,
     paddingLeft: '10px'
   }
 }))
