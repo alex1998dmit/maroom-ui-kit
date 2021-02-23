@@ -45,7 +45,7 @@ const useStyles = makeStyles({
         ? TextSizesStyles[props.size].fontSize
         : TextSizesStyles[TextSizes.textMd]
     }px`,
-    color: props.color ? colors[props.color].main : 'black'
+    color: 'black'
   })
 })
 
