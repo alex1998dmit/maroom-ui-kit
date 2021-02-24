@@ -33,7 +33,7 @@ const colors: ColorsInterface = {
     main: '#F57C00',
     brand: '#F57C00',
     background: '#FEF7F0',
-    light: '#7F8285'
+    light: '#FDEBD9'
   },
   secondary: {
     main: '#191919',

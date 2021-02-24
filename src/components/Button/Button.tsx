@@ -4,29 +4,73 @@ import { makeStyles } from '@material-ui/styles'
 import { ButtonProps as MaterialButtonProps } from '@material-ui/core/Button'
 import colors from '../../theme/colors'
 
+export enum ButtonThemes {
+  brandPrimary = 'brandPrimary',
+  brandLight = 'brandLight',
+  white = 'customWhite',
+  light = 'light'
+}
+
+const ColorsAndContrasts = {
+  [ButtonThemes.brandPrimary]: {
+    main: colors.primary.main,
+    border: 'transparent',
+    contrast: colors.secondary.white,
+    pressed: colors.primary.pressed
+  },
+  [ButtonThemes.brandLight]: {
+    main: colors.primary.light,
+    border: 'transparent',
+    contrast: colors.primary.brand,
+    pressed: colors.primary.light
+  },
+  [ButtonThemes.white]: {
+    main: '#FFFFFF',
+    border: colors.secondary.border,
+    contrast: '#DADADA',
+    pressed: '#FFFFFF'
+  },
+  [ButtonThemes.light]: {
+    main: colors.secondary.light3,
+    border: 'transparent',
+    contrast: colors.secondary.medium,
+    pressed: colors.secondary.light3
+  }
+}
+
 const useStyles = makeStyles(() => ({
   // props: ButtonProps
-  root: () => ({
-    backgroundColor: colors.primary.main,
-    background: 'white',
+  root: (props: ButtonProps) => ({
+    backgroundColor:
+      ColorsAndContrasts[props.theme || ButtonThemes.brandPrimary].main,
     height: '40px',
     fontSize: '14x',
     lineHeight: '14px',
     borderRadius: '66px',
-    color: colors.secondary.white,
+    border: `1px solid ${
+      ColorsAndContrasts[props.theme || ButtonThemes.brandPrimary].border
+    }`,
+    color:
+      ColorsAndContrasts[props.theme || ButtonThemes.brandPrimary].contrast,
     textTransform: 'none',
     boxShadow: 'none',
     '& svg': {
       '& path': {
-        fill: colors.secondary.white
+        fill:
+          ColorsAndContrasts[props.theme || ButtonThemes.brandPrimary].contrast
       }
     },
     '&:hover': {
-      backgroundColor: colors.primary.main,
-      color: colors.secondary.white,
+      backgroundColor:
+        ColorsAndContrasts[props.theme || ButtonThemes.brandPrimary].main,
+      color:
+        ColorsAndContrasts[props.theme || ButtonThemes.brandPrimary].contrast,
+      boxShadow: 'none',
       '& svg': {
         '& path': {
-          fill: colors.secondary.white
+          fill:
+            ColorsAndContrasts[props.theme || ButtonThemes.brandPrimary]
+              .contrast
         }
       }
     },
@@ -55,12 +99,6 @@ export enum ButtonSizes {
   lg = 'large'
 }
 
-export enum ButtonThemes {
-  brandPrimary = 'brandPrimary',
-  brandLight = 'brandLight',
-  white = 'customWhite'
-}
-
 type ButtonProps = {
   size?: ButtonSizes
   children?: React.ReactNode
@@ -69,6 +107,7 @@ type ButtonProps = {
   disabled?: boolean
   fullWidth?: boolean
   className?: string
+  theme?: ButtonThemes
 } & MaterialButtonProps
 
 const Button = (props: ButtonProps) => {

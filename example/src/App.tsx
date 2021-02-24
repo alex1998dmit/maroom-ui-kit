@@ -1,18 +1,20 @@
 import React from 'react'
 
 import {
+  AutocompleteInput,
   Button,
-  Heading,
-  HeadingSizes,
-  Input,
+  ButtonThemes,
   Caption,
   CaptionWeights,
-  AutocompleteInput,
+  CircleButton,
+  Heading,
+  HeadingSizes, Input,
+  // Input,
   InputMask,
-  // DatePicker,
   InputSelect
 } from './dist'
 import {Container, Grid} from "@material-ui/core";
+import {CircleButtonThemes, CircleButtonSizes} from "./dist";
 
 const App = () => {
   return (
@@ -32,10 +34,7 @@ const App = () => {
             Some text
           </Heading>
         </Grid>
-        <Grid item xs={4}>
-          <Input label={'name'} />
-        </Grid>
-        <Grid item xs={4}>
+        <Grid item xs={12}>
           <Caption weight={CaptionWeights.bold}>
             Caption text
           </Caption>
@@ -46,10 +45,70 @@ const App = () => {
             Caption text
           </Caption>
         </Grid>
+        <Grid item xs={12} container>
+          <Grid item xs={3}>
+            <Button>
+              Click me
+            </Button>
+          </Grid>
+          <Grid item xs={3}>
+            <Button theme={ButtonThemes.light}>
+              Click me
+            </Button>
+          </Grid>
+          <Grid item xs={3}>
+            <Button theme={ButtonThemes.white}>
+              Click me
+            </Button>
+          </Grid>
+          <Grid item xs={3}>
+            <Button theme={ButtonThemes.brandLight}>
+              Click me
+            </Button>
+          </Grid>
+        </Grid>
+        <Grid item xs={12} container>
+          <Grid item xs={1}>
+            <CircleButton>
+              +
+            </CircleButton>
+          </Grid>
+          <Grid item xs={1}>
+
+          </Grid>
+          <Grid item xs={1}>
+            <CircleButton theme={CircleButtonThemes.brandLight}>
+              +
+            </CircleButton>
+          </Grid>
+          <Grid item xs={1}>
+            <CircleButton size={CircleButtonSizes.lg} theme={CircleButtonThemes.brandLight}>
+              +
+            </CircleButton>
+          </Grid>
+          <Grid item xs={1}>
+            <CircleButton theme={CircleButtonThemes.brandLight}>
+              +
+            </CircleButton>
+          </Grid>
+          <Grid item xs={1}>
+            <CircleButton size={CircleButtonSizes.lg} theme={CircleButtonThemes.white}>
+              +
+            </CircleButton>
+          </Grid>
+          <Grid item xs={1}>
+            <CircleButton theme={CircleButtonThemes.white}>
+              +
+            </CircleButton>
+          </Grid>
+          <Grid item xs={1}>
+            <CircleButton size={CircleButtonSizes.lg} theme={CircleButtonThemes.white}>
+              +
+            </CircleButton>
+          </Grid>
+        </Grid>
         <Grid item xs={4}>
-          <Button>
-            Click me
-          </Button>
+          <Input label={'Enter your name'} />
         </Grid>
         <Grid item xs={4}>
           <AutocompleteInput

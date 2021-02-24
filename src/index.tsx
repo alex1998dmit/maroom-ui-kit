@@ -15,6 +15,10 @@ export {
 } from './components/Caption'
 
 export { default as CircleButton } from './components/CircleButton'
+export {
+  CircleButtonSizes,
+  CircleButtonThemes
+} from './components/CircleButton/CircleButton'
 
 export { default as DatePicker } from './components/DatePicker'
 
@@ -37,4 +41,3 @@ export { default as InputSelect } from './components/InputSelect'
 
 export { default as Text } from './components/Text'
 export { TextSizes, TextWeights } from './components/Text'
-
