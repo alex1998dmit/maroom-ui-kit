@@ -8,15 +8,16 @@ import {
   CaptionWeights,
   CircleButton,
   Heading,
-  HeadingSizes, Input,
-  // Input,
+  HeadingSizes,
+  Input,
   InputMask,
   InputSelect
 } from './dist'
 import {Container, Grid} from "@material-ui/core";
-import {CircleButtonThemes, CircleButtonSizes} from "./dist";
+import { CircleButtonSizes, CircleButtonThemes } from "./dist"
 
 const App = () => {
+  console.log(CircleButtonSizes)
   return (
     <Container>
       <Grid container spacing={3}>
@@ -45,7 +46,7 @@ const App = () => {
             Caption text
           </Caption>
         </Grid>
-        <Grid item xs={12} container>
+        <Grid item xs={12} container spacing={2}>
           <Grid item xs={3}>
             <Button>
               Click me
@@ -82,7 +83,10 @@ const App = () => {
             </CircleButton>
           </Grid>
           <Grid item xs={1}>
-            <CircleButton size={CircleButtonSizes.lg} theme={CircleButtonThemes.brandLight}>
+            <CircleButton
+              size={CircleButtonSizes.lg}
+              theme={CircleButtonThemes.brandLight}
+            >
               +
             </CircleButton>
           </Grid>
@@ -156,16 +160,6 @@ const App = () => {
               ]}
             />
         </Grid>
-        {/*<Grid item xs={4}>*/}
-
-          {/*<CircleButton theme={Circle}*/}
-        {/*</Grid>*/}
-        {/*<Grid item xs={4}>*/}
-
-        {/*</Grid>*/}
-        {/*<Grid item xs={4}>*/}
-
-        {/*</Grid>*/}
       </Grid>
     </Container>
   )

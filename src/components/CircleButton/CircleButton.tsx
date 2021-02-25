@@ -1,8 +1,9 @@
 import * as React from 'react'
-import IconButton, { IconButtonProps } from '@material-ui/core/IconButton'
+import IconButton from '@material-ui/core/IconButton'
 import { makeStyles } from '@material-ui/styles'
 import colors from '../../theme/colors'
 import { ButtonThemes } from 'maroom-ui-kit/core/Button'
+import cn from 'classnames'
 
 export enum CircleButtonThemes {
   brandPrimary = 'brandPrimary',
@@ -57,12 +58,19 @@ const ButtonSizes = {
 type CircleButtonProps = {
   theme?: string
   children?: React.ReactNode
-  sizes?: CircleButtonSizes
-} & IconButtonProps
+  size?: CircleButtonSizes
+  onClick?: () => void
+  className?: string
+}
+
+type stylesProps = {
+  theme?: string
+  size?: CircleButtonSizes
+}
 
 const useStyles = makeStyles(() => ({
   // props: CircleButtonProps
-  root: (props: CircleButtonProps) => ({
+  root: (props: stylesProps) => ({
     backgroundColor:
       ColorsAndContrasts[props.theme || ButtonThemes.brandPrimary].main,
     width: ButtonSizes[props.size || CircleButtonSizes.md].width,
@@ -77,27 +85,41 @@ const useStyles = makeStyles(() => ({
         fill:
           ColorsAndContrasts[props.theme || ButtonThemes.brandPrimary].contrast
       }
+    },
+    '&:hover': {
+      backgroundColor:
+        ColorsAndContrasts[props.theme || ButtonThemes.brandPrimary].main,
+      color:
+        ColorsAndContrasts[props.theme || ButtonThemes.brandPrimary].contrast,
+      boxShadow: 'none',
+      '& svg': {
+        '& path': {
+          fill:
+            ColorsAndContrasts[props.theme || ButtonThemes.brandPrimary]
+              .contrast
+        }
+      }
+    },
+    '&:active': {
+      backgroundColor:
+        ColorsAndContrasts[props.theme || ButtonThemes.brandPrimary].main,
+      boxShadow: '0px 5px 16px rgba(0, 0, 0, 0.1)'
     }
   })
 }))
 
 const CircleButton = (props: CircleButtonProps) => {
-  const { theme, size } = props
+  const { theme, size, onClick, className } = props
   const classes = useStyles({ theme, size })
   return (
-    <IconButton
-      {...props}
-      classes={{
-        root: classes.root
-      }}
-    >
+    <IconButton onClick={onClick} className={cn(classes.root, className)}>
       {props.children}
     </IconButton>
   )
 }
 
 CircleButton.defaultProps = {
-  theme: 'brandPrimary'
+  theme: CircleButtonThemes.brandPrimary
 }
 
 export default CircleButton
