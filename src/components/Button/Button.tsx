@@ -75,7 +75,7 @@ const useStyles = makeStyles(() => ({
       }
     },
     '&:active': {
-      backgroundColor: colors.primary.pressed,
+      backgroundColor: ColorsAndContrasts[props.theme || ButtonThemes.brandPrimary].main,
       boxShadow: '0px 5px 16px rgba(0, 0, 0, 0.1)'
     }
   }),
