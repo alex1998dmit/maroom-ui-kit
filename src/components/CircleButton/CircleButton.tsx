@@ -71,6 +71,7 @@ type stylesProps = {
 const useStyles = makeStyles(() => ({
   // props: CircleButtonProps
   root: (props: stylesProps) => ({
+    padding: 0,
     backgroundColor:
       ColorsAndContrasts[props.theme || ButtonThemes.brandPrimary].main,
     width: ButtonSizes[props.size || CircleButtonSizes.md].width,
