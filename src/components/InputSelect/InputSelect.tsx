@@ -5,7 +5,6 @@ import Input, { InputProps } from '../Input'
 export type MenuItemType = {
   value: number | string
   label: string | number
-  selected?: boolean
 }
 
 type Props = {
@@ -15,7 +14,7 @@ type Props = {
 function InputSelect(props: Props) {
   const { values, ...inputProps } = props
   return (
-    <Input {...inputProps} select>
+    <Input {...inputProps} fullWidth select>
       {values.map((item: MenuItemType, index: number) => (
         <MenuItem key={index} value={item.value}>
           {item.label}

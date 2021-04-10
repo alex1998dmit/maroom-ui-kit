@@ -6,7 +6,8 @@ import colors from '../../theme/colors'
 
 const useStyles = makeStyles(() => ({
   root: {
-    position: 'relative'
+    position: 'relative',
+    width: '100%'
   },
   options: {
     background: 'white',
@@ -76,24 +77,22 @@ const AutocompleteInput = (props: Props) => {
     autoHighlight: true,
     defaultValue
   })
-
   return (
     <div className={classes.root}>
       <div {...getRootProps()}>
-        <Input {...otherProps} inputProps={{ ...getInputProps() }} />
+        <Input {...otherProps} inputProps={{ ...getInputProps() }} fullWidth />
       </div>
       {groupedOptions.length > 0 ? (
         <div {...getListboxProps()}>
           <div className={classes.options}>
             <div className={classes.optionsContainer}>
               <ul>
-                {groupedOptions.map((option: any, index: number) => {
-                  return (
-                    <li {...getOptionProps({ option, index })} key={index}>
-                      <Option option={option} />
-                    </li>
+                {groupedOptions.map((option: any, index: number) => (
+                  <li {...getOptionProps({ option, index })} key={index}>
+                    <Option option={option} />
+                  </li>
                   )
-                })}
+                )}
               </ul>
             </div>
           </div>

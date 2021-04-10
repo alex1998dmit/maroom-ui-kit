@@ -1,167 +1,188 @@
-import React from 'react'
+import * as React from 'react'
+import { Caption, CaptionWeights, DatePicker, Input, Button, ButtonThemes, AutocompleteInput, Switcher, theme, ButtonSizes, InputSelect, Heading, HeadingSizes, HeadingWeights, CaptionSizes } from 'maroom-ui-kit'
+import { Container, Grid } from '@material-ui/core'
+import {createMuiTheme, ThemeProvider} from '@material-ui/core/styles'
+import 'react-datepicker/dist/react-datepicker.css'
 
-import {
-  AutocompleteInput,
-  Button,
-  ButtonThemes,
-  Caption,
-  CaptionWeights,
-  CircleButton,
-  Heading,
-  HeadingSizes,
-  Input,
-  InputMask,
-  InputSelect
-} from './dist'
-import {Container, Grid} from "@material-ui/core";
-import { CircleButtonSizes, CircleButtonThemes } from "./dist"
+type Item = {
+  value: string
+}
+
+const items: Array<Item> = [
+  {
+    value: 'Twenty One Pilots - Addiction with pen'
+  },
+  {
+    value: 'Oasis - Wonderwall'
+  },
+  {
+    value: 'Beatles - Yesterday'
+  },
+  {
+    value: 'Beatles - Help'
+  },
+]
+
+const Option = (props: any) => <div>{props.option.value}</div>
+
+type SwitchOptionProps = {
+  id: number
+  label: string
+  value: string
+}
+
+const SwitcherItems: Array<SwitchOptionProps> = [
+  {
+    id: 1,
+    label: 'React',
+    value: 'React'
+  },
+  {
+    id: 2,
+    label: 'Vue',
+    value: 'Vue'
+  },
+  {
+    id: 3,
+    label: 'Angular',
+    value: 'Angular'
+  }
+]
+
+const SelectOptions = [
+  {
+    value: 'TOP',
+    label: 'Twenty One Pilots'
+  },
+  {
+    value: 'Green day',
+    label: 'Green day'
+  },
+  {
+    value: 'Beatles',
+    label: 'Beatles'
+  }
+]
+
+const appTheme = createMuiTheme({
+  ...theme,
+})
+
 
 const App = () => {
-  console.log(CircleButtonSizes)
   return (
-    <Container>
-      <Grid container spacing={3}>
-        <Grid item xs={12}>
-          <Heading size={HeadingSizes.h1}>
-            Some text
-          </Heading>
-          <Heading size={HeadingSizes.h2}>
-            Some text
-          </Heading>
-          <Heading size={HeadingSizes.h3}>
-            Some text
-          </Heading>
-          <Heading size={HeadingSizes.h4}>
-            Some text
-          </Heading>
-        </Grid>
-        <Grid item xs={12}>
-          <Caption weight={CaptionWeights.bold}>
-            Caption text
-          </Caption>
-          <Caption weight={CaptionWeights.medium}>
-            Caption text
-          </Caption>
-          <Caption weight={CaptionWeights.regular}>
-            Caption text
-          </Caption>
-        </Grid>
-        <Grid item xs={12} container spacing={2}>
-          <Grid item xs={3}>
-            <Button>
-              Click me
-            </Button>
+    <ThemeProvider theme={appTheme}>
+      <Container>
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <Heading size={HeadingSizes.h1} weight={HeadingWeights.bold}>
+              Съешь ещё этих мягких французских булок, да выпей же чаю
+            </Heading>
+            <Heading size={HeadingSizes.h2} weight={HeadingWeights.bold}>
+              Съешь ещё этих мягких французских булок, да выпей же чаю
+            </Heading>
+            <Heading size={HeadingSizes.h3} weight={HeadingWeights.normal}>
+              Съешь ещё этих мягких французских булок, да выпей же чаю
+            </Heading>
+            <Heading size={HeadingSizes.h4} weight={HeadingWeights.medium}>
+              Съешь ещё этих мягких французских булок, да выпей же чаю
+            </Heading>
+          </Grid>
+          <Grid item xs={12}>
+            <Caption size={CaptionSizes.m} weight={CaptionWeights.medium}>
+              Съешь ещё этих мягких французских булок, да выпей же чаю
+            </Caption>
+            <Caption size={CaptionSizes.s} weight={CaptionWeights.medium}>
+              Съешь ещё этих мягких французских булок, да выпей же чаю
+            </Caption>
+            <Caption size={CaptionSizes.xs} weight={CaptionWeights.medium}>
+              Съешь ещё этих мягких французских булок, да выпей же чаю
+            </Caption>
           </Grid>
           <Grid item xs={3}>
-            <Button theme={ButtonThemes.light}>
-              Click me
-            </Button>
+            <Input label='test' />
           </Grid>
-          <Grid item xs={3}>
-            <Button theme={ButtonThemes.white}>
-              Click me
-            </Button>
+          <Grid item xs={4}>
+            <DatePicker />
           </Grid>
-          <Grid item xs={3}>
-            <Button theme={ButtonThemes.brandLight}>
-              Click me
-            </Button>
+          <Grid item xs={5}>
+            <InputSelect values={SelectOptions} label='Select group' />
           </Grid>
-        </Grid>
-        <Grid item xs={12} container>
-          <Grid item xs={1}>
-            <CircleButton>
-              +
-            </CircleButton>
-          </Grid>
-          <Grid item xs={1}>
-
-          </Grid>
-          <Grid item xs={1}>
-            <CircleButton theme={CircleButtonThemes.brandLight}>
-              +
-            </CircleButton>
-          </Grid>
-          <Grid item xs={1}>
-            <CircleButton
-              size={CircleButtonSizes.lg}
-              theme={CircleButtonThemes.brandLight}
+          <Grid item xs={3} container justify='center' alignContent='center'>
+            <Button
+              theme={ButtonThemes.brandLight}
+              size={ButtonSizes.sm}
             >
-              +
-            </CircleButton>
+              Hello 1
+            </Button>
+            <Button
+              theme={ButtonThemes.light}
+              size={ButtonSizes.sm}
+            >
+              Hello 2
+            </Button>
+            <Button
+              theme={ButtonThemes.white}
+              size={ButtonSizes.sm}
+            >
+              Hello 3
+            </Button>
           </Grid>
-          <Grid item xs={1}>
-            <CircleButton theme={CircleButtonThemes.brandLight}>
-              +
-            </CircleButton>
+          <Grid item xs={3} container justify='center' alignContent='center'>
+            <Button
+              theme={ButtonThemes.brandLight}
+              size={ButtonSizes.md}
+            >
+              Hello 1
+            </Button>
+            <Button
+              theme={ButtonThemes.light}
+              size={ButtonSizes.md}
+            >
+              Hello 2
+            </Button>
+            <Button
+              theme={ButtonThemes.white}
+              size={ButtonSizes.md}
+            >
+              Hello 3
+            </Button>
           </Grid>
-          <Grid item xs={1}>
-            <CircleButton size={CircleButtonSizes.lg} theme={CircleButtonThemes.white}>
-              +
-            </CircleButton>
+          <Grid item xs={3} container justify='center' alignContent='center'>
+            <Button
+              theme={ButtonThemes.brandLight}
+            >
+              Hello 1
+            </Button>
+            <Button
+              theme={ButtonThemes.light}
+            >
+              Hello 2
+            </Button>
+            <Button
+              theme={ButtonThemes.white}
+            >
+              Hello 3
+            </Button>
           </Grid>
-          <Grid item xs={1}>
-            <CircleButton theme={CircleButtonThemes.white}>
-              +
-            </CircleButton>
-          </Grid>
-          <Grid item xs={1}>
-            <CircleButton size={CircleButtonSizes.lg} theme={CircleButtonThemes.white}>
-              +
-            </CircleButton>
-          </Grid>
-        </Grid>
-        <Grid item xs={4}>
-          <Input label={'Enter your name'} />
-        </Grid>
-        <Grid item xs={4}>
-          <AutocompleteInput
-            values={[
-              {
-                value: '1',
-                label: 'Twenty one pilots - Stressed out'
-              },
-              {
-                value: '2',
-                label: 'Beatles - Yesterday'
-              },
-              {
-                value: '3',
-                label: 'Green day - Boulder of broken dreams'
-              },
-            ]}
-            label={'Select song'}
-            getOptionLabel={(item: any) => item.title}
-            Option={(props: any) => <div>{props.option?.title || props.option?.value}</div>}
-          />
-        </Grid>
-        <Grid item xs={4}>
-          <InputMask mask={'+9999999'} label={'phone'} />
-        </Grid>
-        <Grid item xs={4}>
-          {/*<DatePicker onChange={() => console.log()} />*/}
-        </Grid>
-        <Grid item xs={4}>
-            <InputSelect
-              label={'Select song'}
-              values={[
-                {
-                  value: '1',
-                  label: 'Twenty one pilots - Stressed out'
-                },
-                {
-                  value: '2',
-                  label: 'Beatles - Yesterday'
-                },
-                {
-                  value: '3',
-                  label: 'Green day - Boulder of broken dreams'
-                },
-              ]}
+          <Grid item xs={6}>
+            <AutocompleteInput
+              values={items}
+              getOptionLabel={(item: Item) => item.value}
+              Option={Option}
+              label='Music'
             />
+          </Grid>
+          <Grid item xs={6}>
+            <Switcher<SwitchOptionProps>
+              options={SwitcherItems}
+              label='Select language'
+              onChange={(item: SwitchOptionProps, index: number) => console.log(item, index)}
+            />
+          </Grid>
         </Grid>
-      </Grid>
-    </Container>
+      </Container>
+    </ThemeProvider>   
   )
 }
 

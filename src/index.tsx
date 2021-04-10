@@ -41,3 +41,4 @@ export { default as InputSelect } from './components/InputSelect'
 
 export { default as Text } from './components/Text'
 export { TextSizes, TextWeights } from './components/Text'
+export { default as Switcher } from './components/Switcher'

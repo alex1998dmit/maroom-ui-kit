@@ -7,6 +7,7 @@ import colors from '../../theme/colors'
 
 const useStyles: any = makeStyles(() => ({
   root: (props: InputProps) => ({
+    width: props.fullWidth ? '100%' : 'inherit',
     backgroundColor: 'white',
     borderRadius: props.error ? '12px 12px 0 0' : '12px',
     background: 'white',
@@ -54,6 +55,7 @@ type CustomInputProps = {
   inputProps?: any
   name?: string
   label?: string
+  fullWidth?: boolean
 }
 
 export type InputProps = TextFieldProps & CustomInputProps
@@ -69,7 +71,7 @@ const Input = (props: InputProps) => {
           root: classes.root
         }}
         variant='filled'
-        fullWidth
+        fullWidth={false}
         error={error}
         InputProps={{
           ...inputProps,
@@ -87,7 +89,8 @@ const Input = (props: InputProps) => {
 }
 
 Input.defaultProps = {
-  error: false
+  error: false,
+  fullWidth: false
 }
 
 export default Input

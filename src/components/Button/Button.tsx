@@ -11,6 +11,18 @@ export enum ButtonThemes {
   light = 'light'
 }
 
+export enum ButtonSizes {
+  sm = 'small',
+  md = 'medium',
+  lg = 'large'
+}
+
+const ButtonSizesParams = {
+  [ButtonSizes.lg]: { height: '48px', fontSize: '14px' },
+  [ButtonSizes.md]: { height: '40px', fontSize: '14px' },
+  [ButtonSizes.sm]: { height: '32px', fontSize: '12px' }
+}
+
 const ColorsAndContrasts = {
   [ButtonThemes.brandPrimary]: {
     main: colors.primary.main,
@@ -43,13 +55,14 @@ const useStyles = makeStyles(() => ({
   root: (props: ButtonProps) => ({
     backgroundColor:
       ColorsAndContrasts[props.theme || ButtonThemes.brandPrimary].main,
-    height: '40px',
-    fontSize: '14x',
+    height: ButtonSizesParams[props.size || ButtonSizes.lg].height,
+    fontSize: ButtonSizesParams[props.size || ButtonSizes.lg].fontSize,
     lineHeight: '14px',
     borderRadius: '66px',
     border: `1px solid ${
       ColorsAndContrasts[props.theme || ButtonThemes.brandPrimary].border
     }`,
+    // padding: '0 16px',
     color:
       ColorsAndContrasts[props.theme || ButtonThemes.brandPrimary].contrast,
     textTransform: 'none',
@@ -79,25 +92,10 @@ const useStyles = makeStyles(() => ({
       boxShadow: '0px 5px 16px rgba(0, 0, 0, 0.1)'
     }
   }),
-  sizeSmall: {
-    height: '32px !important',
-    fontSize: '12px !important',
-    lineHeight: '14px !important'
-  },
-  sizeLarge: {
-    height: '48px !important',
-    fontSize: '12px !important',
-    lineHeight: '14px !important'
-  },
   startIcon: {
     // padding: '10px'
   }
 }))
-
-export enum ButtonSizes {
-  sm = 'small',
-  lg = 'large'
-}
 
 type ButtonProps = {
   size?: ButtonSizes
@@ -111,20 +109,17 @@ type ButtonProps = {
 } & MaterialButtonProps
 
 const Button = (props: ButtonProps) => {
-  const { size, startIcon, endIcon, disabled, fullWidth, className } = props
+  const { startIcon, endIcon, disabled, fullWidth, className } = props
   const classes = useStyles(props)
   return (
     <ButtonMaterial
       {...props}
-      size={size}
       fullWidth={fullWidth}
       startIcon={startIcon}
       endIcon={endIcon}
       disabled={disabled}
       variant='contained'
       classes={{
-        sizeSmall: classes.sizeSmall,
-        sizeLarge: classes.sizeLarge,
         root: classes.root,
         startIcon: classes.startIcon
       }}
@@ -137,7 +132,8 @@ const Button = (props: ButtonProps) => {
 
 Button.defaultProps = {
   disabled: false,
-  fullWidth: true
+  fullWidth: false,
+  size: ButtonSizes.lg
 }
 
 export default Button
