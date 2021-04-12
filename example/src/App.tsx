@@ -70,6 +70,7 @@ const appTheme = createMuiTheme({
 
 
 const App = () => {
+  const [date, setDate]: Date = React.useState(new Date())
   return (
     <ThemeProvider theme={appTheme}>
       <Container>
@@ -102,8 +103,8 @@ const App = () => {
           <Grid item xs={3}>
             <Input label='test' />
           </Grid>
-          <Grid item xs={4}>
-            <DatePicker />
+          <Grid item xs={12}>
+            <DatePicker value={date} onChange={setDate} label='Select date' />
           </Grid>
           <Grid item xs={5}>
             <InputSelect values={SelectOptions} label='Select group' />

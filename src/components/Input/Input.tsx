@@ -28,7 +28,8 @@ const useStyles: any = makeStyles(() => ({
     border: `${props.error ? 1.5 : 1}px solid ${
       props.error ? colors.error.main : colors.secondary.border
     }`,
-    borderRadius: props.error ? '12px 12px 0 0' : '12px'
+    borderRadius: props.error ? '12px 12px 0 0' : '12px',
+    maxHeight: '56px',
   }),
   focusedInput: {
     background: 'white'

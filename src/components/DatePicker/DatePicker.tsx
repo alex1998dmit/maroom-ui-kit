@@ -1,8 +1,8 @@
 import * as React from 'react'
 import DatePicker, {ReactDatePickerProps} from 'react-datepicker'
-// import { Input } from '../../'
-// import EndAdornment, { AdormentPositions } from '../EndAdorment/EndAdorment'
-// import CalendarIcon from '../../icons/Calendar'
+import { Input } from '../../'
+import EndAdornment, { AdormentPositions } from '../EndAdorment/EndAdorment'
+import CalendarIcon from '../../icons/Calendar'
 import { InputProps } from '../Input'
 
 type Props = {
@@ -13,8 +13,8 @@ type Props = {
   errorMsg?: string
   defaultValue?: any
   fullWidth?: boolean
-  value?: Date
-  onChange?: (date: Date) => void
+  value: Date
+  onChange: any
   dateFormat?: string
   dataPickerProps?: ReactDatePickerProps
 }
@@ -32,8 +32,6 @@ const CalendarInput = (props: Props) => {
     dataPickerProps,
     ...otherProps
   } = props
-  console.log(props)
-  const [selected, setSelected] = React.useState<Date>(new Date())
   const CustomInput = ({ value, onClick }: any) => (
     <Input
       {...otherProps}
@@ -54,14 +52,13 @@ const CalendarInput = (props: Props) => {
   )
 
   return (
-    // <DatePicker
-    //   // {...dataPickerProps}
-    //   selected={value}
-    //   onChange={onChange}
-    //   // customInput={<CustomInput />}
-    //   // dateFormat={dateFormat}
-    // />
-    <DatePicker selected={selected} onChange={(date: Date) => setSelected(date)} />
+    <DatePicker
+      {...dataPickerProps}
+      selected={value}
+      onChange={onChange}
+      customInput={<CustomInput />}
+      dateFormat={dateFormat}
+    />
   )
 }
 
