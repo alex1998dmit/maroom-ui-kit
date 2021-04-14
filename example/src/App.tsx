@@ -1,8 +1,9 @@
 import * as React from 'react'
-import { Caption, CaptionWeights, DatePicker, Input, Button, ButtonThemes, AutocompleteInput, Switcher, theme, ButtonSizes, InputSelect, Heading, HeadingSizes, HeadingWeights, CaptionSizes } from 'maroom-ui-kit'
+import { Caption, CaptionWeights, DatePicker, Input, Button, ButtonThemes, AutocompleteInput, Switcher, theme, ButtonSizes, InputSelect, Heading, HeadingSizes, HeadingWeights, CaptionSizes, InputMask, CircleButton, CircleButtonSizes } from 'maroom-ui-kit'
 import { Container, Grid } from '@material-ui/core'
 import {createMuiTheme, ThemeProvider} from '@material-ui/core/styles'
 import 'react-datepicker/dist/react-datepicker.css'
+import { CircleButtonThemes } from './dist'
 
 type Item = {
   value: string
@@ -70,7 +71,7 @@ const appTheme = createMuiTheme({
 
 
 const App = () => {
-  const [date, setDate]: Date = React.useState(new Date())
+  const [date, setDate] = React.useState<Date>(new Date())
   return (
     <ThemeProvider theme={appTheme}>
       <Container>
@@ -102,6 +103,23 @@ const App = () => {
           </Grid>
           <Grid item xs={3}>
             <Input label='test' />
+          </Grid>
+          <Grid item xs={3}>
+            <InputMask mask='+7(999)-999-99-99' label='Enter phone number' />
+          </Grid>
+          <Grid item xs={3} container justify='space-between' alignItems='center'>
+            <CircleButton size={CircleButtonSizes.md}>
+              +
+            </CircleButton>
+            <CircleButton size={CircleButtonSizes.lg}>
+              +
+            </CircleButton>
+            <CircleButton size={CircleButtonSizes.md} theme={CircleButtonThemes.light}>
+              +
+            </CircleButton>
+            <CircleButton size={CircleButtonSizes.lg} theme={CircleButtonThemes.light}>
+              +
+            </CircleButton>
           </Grid>
           <Grid item xs={12}>
             <DatePicker value={date} onChange={setDate} label='Select date' />
